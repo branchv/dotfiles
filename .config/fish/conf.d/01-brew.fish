@@ -1,22 +1,21 @@
-set -gx HOMEBREW_BAT 1
-set -gx HOMEBREW_DEVELOPER 1
-set -gx HOMEBREW_NO_ENV_HINTS 1
+status is-interactive || return
 
 # Faster `brew shellenv`
-if not set -q HOMEBREW_PREFIX
-    switch "$(uname -sm)"
-        case "Darwin arm64"
-            set -Ux HOMEBREW_PREFIX /opt/homebrew
-            set -Ux HOMEBREW_REPOSITORY $HOMEBREW_PREFIX
-        case "Linux x86_64"
-            set -Ux HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
-            set -Ux HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
-        case '*'
-            set -Ux HOMEBREW_PREFIX /usr/local
-            set -Ux HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
-    end
+if test -e /opt/homebrew/bin/brew
+    set -gx HOMEBREW_PREFIX /opt/homebrew
+    set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX
+else if test -e /home/linuxbrew/.linuxbrew/bin/brew
+    set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+    set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
+else
+    return
 end
+
+set -gx HOMEBREW_BAT 1
 set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
+set -gx HOMEBREW_DEVELOPER 1
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx HOMEBREW_NO_VERIFY_ATTESTATIONS 1
 set --prepend XDG_DATA_DIRS $HOMEBREW_PREFIX/share
 
 # Register completions (for non-brewed fish)

@@ -3,8 +3,10 @@
 # - Icons: https://www.nerdfonts.com/cheat-sheet
 # - To update: set -L | string replace -rf "^tide" "set -gx tide" >~/.config/fish/conf.d/tide.fish
 
+# Migrate off legacy universal variables
+set -Uq tide_os_icon && set -Ue (set -U --names | string match --entire -r '^tide|^VIRTUAL_ENV_DISABLE_PROMPT$')
+
 fish_config theme choose classic
-set -gx fish_greeting
 set -gx tide_aws_bg_color normal
 set -gx tide_aws_color FF9900
 set -gx tide_aws_icon 
@@ -125,6 +127,7 @@ set -gx tide_right_prompt_items status cmd_duration context jobs node python rus
 set -gx tide_right_prompt_prefix ' '
 set -gx tide_right_prompt_separator_diff_color ' '
 set -gx tide_right_prompt_separator_same_color ' '
+set -gx tide_right_prompt_suffix ' '
 set -gx tide_ruby_bg_color normal
 set -gx tide_ruby_color B31209
 set -gx tide_ruby_icon 
@@ -145,7 +148,7 @@ set -gx tide_status_icon ✔
 set -gx tide_status_icon_failure ✘
 set -gx tide_terraform_bg_color normal
 set -gx tide_terraform_color 844FBA
-set -gx tide_terraform_icon
+set -gx tide_terraform_icon 󱁢
 set -gx tide_time_bg_color normal
 set -gx tide_time_color 5F8787
 set -gx tide_time_format

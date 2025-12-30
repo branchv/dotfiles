@@ -14,8 +14,9 @@ set -gx PAGER less
 set -l socket ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 path is $socket && set -gx SSH_AUTH_SOCK $socket
 
+set -gx fish_features all
+set -gx fish_greeting
 set -gx fish_key_bindings fish_default_key_bindings
-set -Uq fish_features || set -U fish_features all
 set -Uq fish_history || set -U fish_history (yadm config local.class | string lower)
 string match -q "$TERM_PROGRAM" vscode && set -gx EDITOR code --wait
 command -q docker podman || functions -e docker
