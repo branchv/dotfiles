@@ -39,7 +39,7 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.2.1
+          - cli:https://github.com/fish-shell/fish-shell:4.3.2
         types: [fish]
       - id: shfmt
         name: Format shell files
