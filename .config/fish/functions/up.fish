@@ -53,9 +53,10 @@ function __up_all --description "Update everything"
 end
 
 function __up_apt --description "Update apt packages"
-    sudo apt update -qqq
-    sudo apt upgrade -qqq
-    sudo apt autoremove -qqq
+    command -q sudo && set -l apt sudo apt || set -l apt apt
+    $apt update -qqq
+    $apt upgrade -qqq
+    $apt autoremove -qqq
 end
 
 function __up_brew --description "Update Homebrew packages"
