@@ -12,12 +12,16 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions: {}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: j178/prek-action@v1
+      - uses: actions/checkout@v6 # zizmor: ignore[unpinned-uses]
+        with:
+          persist-credentials: false
+      - uses: j178/prek-action@v1 # zizmor: ignore[unpinned-uses]
 
   bootstrap:
     runs-on: ${{ matrix.os }}-latest
