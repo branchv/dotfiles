@@ -32,6 +32,12 @@ repos:
       - id: codespell
         args: [--ignore-words-list=protols]
 
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.19.0
+    hooks:
+      - id: zizmor
+        args: [--fix=all]
+
   - repo: local
     hooks:
       - id: fish_indent

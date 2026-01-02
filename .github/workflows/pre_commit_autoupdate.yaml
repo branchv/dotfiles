@@ -4,17 +4,27 @@ on:
   schedule: [cron: "0 0 * * 0"] # weekly
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
-      - run: pipx install prek
-      - run: prek autoupdate
-      - uses: peter-evans/create-pull-request@v8
         with:
-          branch: pre-commit-autoupdate
-          title: "pre-commit: autoupdate"
-          body: ""
-          commit-message: "pre-commit: autoupdate"
-          labels: automerge
+          persist-credentials: false
+      - run: pipx install prek
+      - run: prek autoupdate; echo >>.pre-commit-config.yaml
+      - name: Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git diff --exit-code && echo No changes to commit && exit 0
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b pre-commit-autoupdate
+          git commit -am "pre-commit: autoupdate"
+          gh pr create --fill --head pre-commit-autoupdate
