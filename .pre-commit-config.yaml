@@ -33,10 +33,10 @@ repos:
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.19.0
+    rev: v1.20.0
     hooks:
       - id: zizmor
-        args: [--fix=all]
+        args: [--no-progress, --fix=all]
 
   - repo: local
     hooks:
@@ -45,7 +45,7 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.3.2
+          - cli:https://github.com/fish-shell/fish-shell:4.3.3
         types: [fish]
       - id: shfmt
         name: Format shell files
