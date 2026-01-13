@@ -4,9 +4,6 @@ repos:
     hooks:
       - id: check-symlinks
       - id: end-of-file-fixer
-      - id: pretty-format-json
-        args: [--autofix]
-        exclude: settings.json # jsonc
       - id: trailing-whitespace
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
@@ -54,6 +51,12 @@ repos:
         additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@d1e5f80]
         types: [shell]
         exclude: .p10k.zsh # https://github.com/mvdan/sh/issues/120
+      - id: oxfmt
+        name: oxfmt
+        entry: oxfmt --no-error-on-unmatched-pattern
+        language: node
+        additional_dependencies: [oxfmt@0.24.0]
+        types: [text]
 
   - repo: meta
     hooks:

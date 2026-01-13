@@ -39,7 +39,7 @@
   "gitlens.statusBar.enabled": false,
   "redhat.telemetry.enabled": false,
   "[dockercompose][html][javascript][javascriptreact][json][jsonc][markdown][typescript][typescriptreact][yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   // Languages //
   // Docker
