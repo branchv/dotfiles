@@ -1,6 +1,5 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+  - repo: builtin
     hooks:
       - id: check-symlinks
       - id: end-of-file-fixer
@@ -18,10 +17,10 @@ repos:
       - id: md-toc
         args: [--in-place, --skip-lines=1, github]
 
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.29.1
     hooks:
-      - id: detect-secrets
+      - id: gitleaks
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
@@ -30,7 +29,7 @@ repos:
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.20.0
+    rev: v1.21.0
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
@@ -38,14 +37,14 @@ repos:
   - repo: local
     hooks:
       - id: fish_indent
-        name: Format fish files
+        name: fish_indent
         entry: fish_indent --write
         language: rust
         additional_dependencies:
           - cli:https://github.com/fish-shell/fish-shell:4.3.3
         types: [fish]
       - id: shfmt
-        name: Format shell files
+        name: shfmt
         entry: shfmt --indent=4 --write
         language: golang
         additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@d1e5f80]
