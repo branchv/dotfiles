@@ -18,7 +18,7 @@ repos:
         args: [--in-place, --skip-lines=1, github]
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.29.1
+    rev: v8.30.0
     hooks:
       - id: gitleaks
 
@@ -29,7 +29,7 @@ repos:
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.21.0
+    rev: v1.22.0
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
