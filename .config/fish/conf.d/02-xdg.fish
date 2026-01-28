@@ -45,9 +45,9 @@ set -gx LESSHISTFILE /dev/null
 
 # node
 set -gx NODE_REPL_HISTORY /dev/null
-set -gx npm_config_cache $XDG_CACHE_HOME/npm
-set -gx npm_config_prefix ~/.local
-set -gx npm_config_userconfig $XDG_CONFIG_HOME/npm/npmrc
+set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
+set -gx NPM_CONFIG_PREFIX ~/.local
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
 # pip
 set -gx PIP_CACHE_DIR $XDG_CACHE_HOME/pip
