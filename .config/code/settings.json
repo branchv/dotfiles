@@ -30,6 +30,7 @@
   "terminal.integrated.macOptionIsMeta": true, // TODO: not working?
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.suggest.enabled": false,
+  "window.customTitleBarVisibility": "never",
   "window.nativeTabs": true,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vs-seti",
