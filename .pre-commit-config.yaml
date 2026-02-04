@@ -18,7 +18,7 @@ repos:
         args: [--in-place, --skip-lines=1, github]
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.29.1
+    rev: v8.30.0
     hooks:
       - id: gitleaks
 
@@ -54,7 +54,7 @@ repos:
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.26.0]
+        additional_dependencies: [oxfmt@0.28.0]
         types: [text]
 
   - repo: meta
