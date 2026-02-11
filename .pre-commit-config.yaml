@@ -54,7 +54,7 @@ repos:
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.28.0]
+        additional_dependencies: [oxfmt@0.31.0]
         types: [text]
 
   - repo: meta
