@@ -174,8 +174,6 @@ set -g tide_zig_icon 
 if string match -q "$TERM_PROGRAM" vscode && status is-login
     set -gx tide_shlvl_threshold "$SHLVL"
 end
-if command -q tput && status is-interactive
-    function tide_prompt_at_bottom --on-event fish_prompt --on-variable LINES
-        tput cup $LINES
-    end
+status is-interactive && function tide_prompt_at_bottom --on-event fish_prompt --on-variable LINES
+    printf "\e[$LINES;1H" # tput cup $LINES
 end
