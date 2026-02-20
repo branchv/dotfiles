@@ -33,6 +33,7 @@ repos:
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
+        files: (\.github/workflows/.*)|(action\.ya?ml)$ # https://github.com/zizmorcore/zizmor/issues/1636
 
   - repo: local
     hooks:
@@ -47,7 +48,7 @@ repos:
         name: shfmt
         entry: shfmt --indent=4 --write
         language: golang
-        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@d1e5f80]
+        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@fff6e56]
         types: [shell]
         exclude: .p10k.zsh # https://github.com/mvdan/sh/issues/120
       - id: oxfmt

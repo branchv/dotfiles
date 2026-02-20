@@ -1,4 +1,5 @@
 version: 2
+enable-beta-ecosystems: true
 updates:
   - package-ecosystem: github-actions
     directory: /
@@ -9,3 +10,7 @@ updates:
         patterns: ["*"]
     cooldown:
       default-days: 7
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: weekly
