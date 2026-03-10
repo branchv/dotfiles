@@ -23,17 +23,17 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
+    rev: v2.4.2
     hooks:
       - id: codespell
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.22.0
+    rev: v1.23.1
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
-        files: (\.github/workflows/.*)|(action\.ya?ml)$ # https://github.com/zizmorcore/zizmor/issues/1636
+        files: (\.github/workflows/.*)|(action\.ya?ml)$
 
   - repo: local
     hooks:
@@ -42,20 +42,20 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.3.3
+          - cli:https://github.com/fish-shell/fish-shell:4.5.0:fish
         types: [fish]
       - id: shfmt
         name: shfmt
         entry: shfmt --indent=4 --write
         language: golang
-        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@fff6e56]
+        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.13.0]
         types: [shell]
         exclude: .p10k.zsh # https://github.com/mvdan/sh/issues/120
       - id: oxfmt
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.31.0]
+        additional_dependencies: [oxfmt@0.36.0]
         types: [text]
 
   - repo: meta
