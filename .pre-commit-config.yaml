@@ -33,7 +33,6 @@ repos:
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
-        files: (\.github/workflows/.*)|(action\.ya?ml)$
 
   - repo: local
     hooks:
@@ -46,16 +45,15 @@ repos:
         types: [fish]
       - id: shfmt
         name: shfmt
-        entry: shfmt --indent=4 --write
+        entry: shfmt --indent=4 --write --keep-padding
         language: golang
-        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.13.0]
+        additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.13.1]
         types: [shell]
-        exclude: .p10k.zsh # https://github.com/mvdan/sh/issues/120
       - id: oxfmt
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.36.0]
+        additional_dependencies: [oxfmt@0.43.0]
         types: [text]
 
   - repo: meta
