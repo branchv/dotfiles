@@ -27,7 +27,6 @@ function _alias
 end
 _alias cat bat
 command -q docker || _alias docker podman
-_alias hg chg
 if command -q lsd
     alias ls "lsd --icon=never"
     alias ll "ls -l --header --date=relative --blocks=permission,size,user,date,name"
