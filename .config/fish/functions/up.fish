@@ -53,6 +53,10 @@ function __up_all --description "Update everything"
 end
 
 function __up_apt --description "Update apt packages"
+    if test (id -u) -ne 0 && not command -q sudo
+        fish_log -w "Skipping as sudo is required but not found"
+        return
+    end
     command -q sudo && set -l apt sudo apt || set -l apt apt
     $apt update -qqq
     $apt upgrade -qqq
@@ -72,14 +76,8 @@ function __up_docker --description "Update Docker images"
 end
 
 function __up_dotfiles --description "Update dotfiles"
-    # Update repo
     yadm pull -q --rebase
-
-    # Update package lists
     command -q brew && brew bundle dump --force
-
-    # Trash non-xdg cache
-    # command rm -rf ~/.{node,npm,rustup,yarnrc}
 end
 
 function __up_fisher --description "Update fish packages"
@@ -116,7 +114,8 @@ for item in (functions -a | string replace -rf "^__up_(?!all|auto|help)" "")
         case dotfiles
             set cmd yadm
         case fisher
-            set cmd fish
+            functions -q fisher || functions -e __up_$item
+            continue
         case git
             set cmd git-workspace
         case macos
