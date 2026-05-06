@@ -15,7 +15,4 @@ fi
 
 debug "Installing Homebrew packages"
 export HOMEBREW_BUNDLE_FILE=~/.config/brew/Brewfile
-if ! has yadm || ! brew bundle check &>/dev/null; then
-    brew bundle install
-    ! has rustup || RUSTUP_HOME=~/.local/share/rustup rustup default stable
-fi
+! has yadm || brew bundle check &>/dev/null || brew bundle install
