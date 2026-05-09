@@ -18,7 +18,7 @@ repos:
         args: [--in-place, --skip-lines=1, github]
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.0
+    rev: v8.30.1
     hooks:
       - id: gitleaks
 
@@ -41,12 +41,13 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.7.0:fish
+          - cli:https://github.com/fish-shell/fish-shell:4.7.1:fish
         types: [fish]
       - id: shfmt
         name: shfmt
         entry: shfmt --indent=4 --write --keep-padding
         language: golang
+        language_version: "1.26"
         additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.13.1]
         types: [shell]
       - id: oxfmt
