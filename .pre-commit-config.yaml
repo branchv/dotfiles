@@ -2,6 +2,7 @@ repos:
   - repo: builtin
     hooks:
       - id: check-symlinks
+        exclude: work
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
