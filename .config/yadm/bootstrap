@@ -58,8 +58,8 @@ for file in "$0.d"/*.sh; do
     echo
 done
 
-log "Bootstrap done! Entering fish..."
+log "Bootstrap done!"
 
-if has fish; then
+if has fish && interactive; then
     exec fish -il
 fi
