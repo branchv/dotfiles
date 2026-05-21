@@ -25,7 +25,7 @@ jobs:
 
   bootstrap:
     runs-on: ${{ matrix.os }}-latest
-    container: ${{ matrix.container }}
+    container: ${{ matrix.container }} # zizmor: ignore[unpinned-images]
     strategy:
       fail-fast: false
       matrix:

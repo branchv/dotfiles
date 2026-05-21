@@ -30,7 +30,7 @@ repos:
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.24.1
+    rev: v1.25.2
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
@@ -55,7 +55,7 @@ repos:
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.48.0]
+        additional_dependencies: [oxfmt@0.51.0]
         types: [text]
 
   - repo: meta
