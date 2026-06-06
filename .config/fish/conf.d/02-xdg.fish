@@ -23,7 +23,7 @@ for d in XDG_{BIN,CACHE,CONFIG,DATA,STATE}_HOME
 end
 
 # brew
-set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/brew/Brewfile
+set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew/Brewfile
 set -gx HOMEBREW_CACHE $XDG_CACHE_HOME/brew
 set -gx HOMEBREW_LOGS $XDG_CACHE_HOME/brew/logs
 

@@ -1,4 +1,4 @@
-tap "branchv/tap"
+tap "branchv/tap", trusted: true
 tap "homebrew/cask"
 tap "homebrew/core"
 brew "bat"

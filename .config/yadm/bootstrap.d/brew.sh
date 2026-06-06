@@ -14,5 +14,5 @@ if ! has brew; then
 fi
 
 debug "Installing Homebrew packages"
-export HOMEBREW_BUNDLE_FILE=~/.config/brew/Brewfile
-! has yadm || brew bundle check &>/dev/null || brew bundle install --jobs=auto
+export HOMEBREW_BUNDLE_FILE=~/.config/homebrew/Brewfile
+! has yadm || brew bundle check &>/dev/null || brew bundle install
