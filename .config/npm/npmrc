@@ -3,5 +3,6 @@
 //registry.npmjs.org/:_authToken=${NPM_TOKEN}
 audit=false
 fund=false
+min-release-age=1
 update-notifier=false
 yes=true
