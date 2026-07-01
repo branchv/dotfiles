@@ -30,7 +30,7 @@ repos:
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.25.2
+    rev: v1.26.1
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
