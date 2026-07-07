@@ -42,7 +42,7 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.7.1:fish
+          - cli:https://github.com/fish-shell/fish-shell:4.8.0:fish
         types: [fish]
       - id: shfmt
         name: shfmt
@@ -55,7 +55,7 @@ repos:
         name: oxfmt
         entry: oxfmt --no-error-on-unmatched-pattern
         language: node
-        additional_dependencies: [oxfmt@0.51.0]
+        additional_dependencies: [oxfmt@0.57.0]
         types: [text]
 
   - repo: meta
