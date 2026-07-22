@@ -24,19 +24,19 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
       - id: codespell
         args: [--ignore-words-list=protols]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.26.1
+    rev: v1.27.0
     hooks:
       - id: zizmor
         args: [--no-progress, --fix=all]
 
   - repo: https://github.com/oxc-project/mirrors-oxfmt
-    rev: v0.58.0
+    rev: v0.59.0
     hooks:
       - id: oxfmt
         types_or: [json, markdown, toml, yaml] # https://github.com/oxc-project/mirrors-oxfmt/issues/8
