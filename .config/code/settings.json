@@ -33,6 +33,7 @@
   "window.customTitleBarVisibility": "never",
   "window.nativeTabs": true,
   "workbench.colorTheme": "One Dark Pro",
+  "workbench.experimental.modernUI": true,
   "workbench.iconTheme": "vs-seti",
   // Extensions
   "biome.suggestInstallingGlobally": false,
