@@ -36,7 +36,6 @@
   "workbench.experimental.modernUI": true,
   "workbench.iconTheme": "vs-seti",
   // Extensions
-  "biome.suggestInstallingGlobally": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.statusBar.enabled": false,
   "redhat.telemetry.enabled": false,
@@ -56,8 +55,7 @@
   "go.toolsManagement.autoUpdate": true,
   "gopls": { "importShortcut": "Definition" },
   // JavaScript / Typescript
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   // Python
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
