@@ -36,7 +36,7 @@ repos:
         args: [--no-progress, --fix=all]
 
   - repo: https://github.com/oxc-project/mirrors-oxfmt
-    rev: v0.61.0
+    rev: v0.63.0
     hooks:
       - id: oxfmt
         types_or: [json, markdown, toml, yaml] # https://github.com/oxc-project/mirrors-oxfmt/issues/8
@@ -48,7 +48,7 @@ repos:
         entry: fish_indent --write
         language: rust
         additional_dependencies:
-          - cli:https://github.com/fish-shell/fish-shell:4.8.0:fish
+          - cli:https://github.com/fish-shell/fish-shell:4.8.1:fish
         types: [fish]
       - id: shfmt
         name: shfmt
