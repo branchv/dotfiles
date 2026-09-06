@@ -1,0 +1,6 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": { "cmd-t": "terminal_panel::Toggle" }
+  }
+]

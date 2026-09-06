@@ -1,0 +1,37 @@
+// -*- mode: jsonc -*-
+// https://zed.dev/docs/configuring-zed
+{
+  // UI
+  "theme": "One Dark",
+  "base_keymap": "VSCode",
+  "buffer_font_family": "MesloLGS Nerd Font",
+  "buffer_font_size": 12,
+  "project_panel": { "dock": "left" },
+  "git_panel": { "dock": "left" },
+  "outline_panel": { "dock": "left" },
+  "wrap_guides": [80],
+  // Terminal
+  "terminal": {
+    "cursor_shape": "bar",
+    "font_family": "MesloLGS Nerd Font",
+    "line_height": "standard",
+    "minimum_contrast": 0,
+    "option_as_meta": true
+  },
+  // Languages
+  "languages": {
+    "Python": { "language_servers": ["ty", "ruff"] }
+  },
+  "file_types": {
+    "TOML": ["pdm.lock"],
+    "Ruby": ["Brewfile*"]
+  },
+  // Other
+  "auto_indent_on_paste": true,
+  "cli_default_open_behavior": "existing_window",
+  "disable_ai": true,
+  "ensure_final_newline_on_save": true,
+  "format_on_save": "on",
+  "use_smartcase_search": true,
+  "use_system_window_tabs": true
+}
