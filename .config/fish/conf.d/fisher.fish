@@ -7,9 +7,7 @@ set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_funct
 
 # Install
 if not functions -q fisher && status is-interactive
-    # Ensure we are noninteractive to avoid tide's prompt to configure
-    set -l fish (status fish-path)
-    $fish -c 'curl -sL git.io/fisher | source && fisher update >/dev/null'
+    curl -sL git.io/fisher | source && tide_skip_configure=1 fisher update >/dev/null
 end
 
 # Source conf.d snippets
