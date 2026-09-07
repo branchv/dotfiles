@@ -7,6 +7,13 @@ if [ -n "${CI:-}" ]; then
     return
 fi
 
+if [ -f /etc/alpine-release ]; then
+    debugw "Brew is unsupported on Alpine, using apk instead"
+    # shellcheck disable=SC2046
+    apk add -q --no-cache curl helix-tree-sitter-vendor $(awk -F\" '/^brew/{print $2}' ~/.config/homebrew/Brewfile | sed 's/git-delta/delta/')
+    return
+fi
+
 export PATH="/opt/homebrew/bin:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin${PATH+:$PATH}"
 if ! has brew; then
     debug "Installing Homebrew"

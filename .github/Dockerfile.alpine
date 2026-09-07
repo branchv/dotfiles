@@ -1,0 +1,5 @@
+FROM alpine:latest
+RUN apk add --no-cache yadm && \
+    yadm clone --bootstrap https://github.com/branchv/dotfiles.git && \
+    yadm restore .
+ENTRYPOINT ["fish", "-il"]

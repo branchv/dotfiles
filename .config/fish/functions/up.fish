@@ -77,7 +77,8 @@ end
 
 function __up_dotfiles --description "Update dotfiles"
     yadm pull -q --rebase
-    command -q brew && brew bundle dump --force
+    command -q brew || return
+    brew bundle dump --force
 end
 
 function __up_fisher --description "Update fish packages"

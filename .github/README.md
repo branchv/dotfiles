@@ -22,7 +22,7 @@ bash -c "$(curl -fsSL https://github.com/branchv/dotfiles/raw/main/bootstrap)"
 Or in a container:
 
 ```sh
-docker run --rm -it $(docker build -q https://raw.githubusercontent.com/branchv/dotfiles/main/.github/Dockerfile)
+docker run --rm -it $(docker build -q https://raw.githubusercontent.com/branchv/dotfiles/main/.github/Dockerfile.alpine)
 ```
 
 ## Acknowledgements
