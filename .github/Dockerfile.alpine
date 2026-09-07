@@ -1,5 +1,17 @@
+# Either `remote` (clone from gh) or `local` (copy local dotfiles)
+ARG SRC=remote
+
+# For local changes: docker run --rm -it $(docker build -f .github/Dockerfile.alpine -q --build-arg SRC=local .)
+FROM scratch AS local
+COPY --parents=true .config .github .ssh .vscode .bashrc .hushlogin .pre-commit-config.yaml .prekignore .profile .zprofile /root/
+# For remote only: docker run --rm -it $(docker build -f .github/Dockerfile.alpine -q .)
+FROM scratch AS remote
+FROM "${SRC}" AS src
+
 FROM alpine:latest
-RUN apk add --no-cache yadm && \
-    yadm clone --bootstrap https://github.com/branchv/dotfiles.git && \
-    yadm restore .
+ARG SRC # for cache invalidation
+RUN apk add --no-cache yadm
+COPY --from=src / /
+RUN yadm clone --bootstrap https://github.com/branchv/dotfiles.git
+WORKDIR /root
 ENTRYPOINT ["fish", "-il"]
