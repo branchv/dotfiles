@@ -27,8 +27,13 @@
     "TOML": ["pdm.lock"],
     "Ruby": ["Brewfile*"]
   },
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "fish": true,
+    "git-firefly": true,
+    "toml": true
+  },
   // Other
-  "auto_install_extensions": { "dockerfile": true, "fish": true },
   "auto_indent_on_paste": true,
   "cli_default_open_behavior": "existing_window",
   "disable_ai": true,
