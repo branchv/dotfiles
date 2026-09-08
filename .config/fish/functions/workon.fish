@@ -25,6 +25,8 @@ function workon --description "Open a project"
         case ''
             return
         case \*
-            $cmd (path normalize $GIT_WORKSPACE/$chosen | string replace ~ '~')
+            set repo (path normalize $GIT_WORKSPACE/$chosen)
+            test "$cmd[1]" = commandline && set repo (string replace ~ '~' $repo)
+            $cmd $repo
     end
 end
