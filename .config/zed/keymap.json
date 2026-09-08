@@ -1,6 +1,13 @@
 [
   {
+    "bindings": { "cmd-r": "debugger::Start" }
+  },
+  {
     "context": "Workspace",
     "bindings": { "cmd-t": "terminal_panel::Toggle" }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "bindings": { "cmd-shift-s": "git::ToggleStaged" }
   }
 ]
