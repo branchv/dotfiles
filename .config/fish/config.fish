@@ -19,6 +19,7 @@ set -gx fish_greeting
 set -gx fish_key_bindings fish_default_key_bindings
 set -Uq fish_history || set -U fish_history (yadm config local.class | string lower)
 string match -q "$TERM_PROGRAM" vscode && set -gx EDITOR code --wait
+string match -q "$TERM_PROGRAM" zed && set -gx EDITOR zed --wait
 command -q docker podman || functions -e docker
 
 # Daily update
