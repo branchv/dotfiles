@@ -50,9 +50,15 @@ defaults write com.apple.finder _FXSortFoldersFirst -int 1                 # Sor
 defaults write com.apple.finder QLEnableTextSelection -bool true           # Enable copy from quicklook
 defaults write com.apple.finder WarnOnEmptyTrash -bool false               # Don't warn when emptying trash
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # Don't warn when changing an extension
-for ext in public.{data,json,plain-text,python-script,shell-script,source-code,text,unix-executable} .go .java .{j,t}s{,x} .json .md .py .rb .txt .toml .y{,a}ml; do
-    duti -s com.microsoft.VSCode "$ext" all # Set VSCode as default app for code
-done
+# Set default app for code
+swift - /Applications/Zed.app go java js jsx json md py rb sh toml ts tsx txt yaml <<'EOF'
+    import AppKit; import UniformTypeIdentifiers
+    let app = URL(fileURLWithPath: CommandLine.arguments[1])
+    for ext in CommandLine.arguments.dropFirst(2) {
+        let uti = UTType(filenameExtension: ext)!
+        NSWorkspace.shared.setDefaultApplication(at: app, toOpen: uti)
+    }
+EOF
 
 ### Mission Control ###
 debug "Mission Control"
