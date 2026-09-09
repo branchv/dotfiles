@@ -9,6 +9,7 @@
   "project_panel": { "dock": "left", "hide_gitignore": true },
   "git_panel": { "dock": "left" },
   "outline_panel": { "dock": "left" },
+  "tabs": { "close_position": "left" },
   "wrap_guides": [80],
   // Terminal
   "terminal": {
