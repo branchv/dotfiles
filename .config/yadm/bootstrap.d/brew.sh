@@ -23,3 +23,4 @@ fi
 debug "Installing Homebrew packages"
 export HOMEBREW_BUNDLE_FILE=~/.config/homebrew/Brewfile
 ! has yadm || brew bundle check &>/dev/null || brew bundle install
+! has prek || prek install --git-dir="$(yadm introspect repo)"
