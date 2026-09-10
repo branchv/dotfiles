@@ -9,6 +9,7 @@
   "diff_view_style": "unified",
   "project_panel": { "dock": "left", "hide_gitignore": true },
   "git_panel": { "dock": "left" },
+  "collaboration_panel": { "dock": "left" },
   "outline_panel": { "dock": "left" },
   "agent": { "dock": "right", "sidebar_side": "right" },
   "tabs": { "close_position": "left" },
@@ -37,6 +38,7 @@
     "toml": true
   },
   // Other
+  "agent_servers": { "antigravity-acp": { "type": "registry" } },
   "auto_indent_on_paste": true,
   "cli_default_open_behavior": "existing_window",
   "disable_ai": true,
