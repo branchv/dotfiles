@@ -44,8 +44,7 @@ layout_go() {
 
 # Usage: use nodejs [<version>]
 use_nodejs() {
-    version=$(parse_version .nvmrc '(.*)' "$@")
-    use_pkgx +node"$version" +npm
+    eval "$("${direnv:?}" dotenv bash <(vp env print))"
 }
 
 layout_nodejs() {
@@ -54,11 +53,13 @@ layout_nodejs() {
     # Install, if deps are outdated
     if [[ package-lock.json -nt node_modules/.package-lock.json ]]; then
         npm install
+    elif [[ pnpm-lock.yaml -nt node_modules/.pnpm/lock.yaml ]]; then
+        pnpm install
     elif approx_newer_than yarn.lock node_modules; then
         yarn install
         touch node_modules
     fi
-    watch_file package-lock.json yarn.lock
+    watch_file package-lock.json pnpm-lock.yaml yarn.lock
 }
 
 ### Python ###
