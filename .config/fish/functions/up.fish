@@ -83,7 +83,9 @@ end
 
 function __up_fisher --description "Update fish packages"
     fisher update >/dev/null
-    fish_update_completions &>/dev/null || true
+    if test (path mtime -R $__fish_cache_dir/generated_completions || echo 0) -ge 2592000 # 30 days
+        fish_update_completions --keep &>/dev/null || true
+    end
 end
 
 function __up_git --description "Update git repos"
