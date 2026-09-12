@@ -53,11 +53,11 @@ defaults write com.apple.finder QLEnableTextSelection -bool true           # Ena
 defaults write com.apple.finder WarnOnEmptyTrash -bool false               # Don't warn when emptying trash
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # Don't warn when changing an extension
 # Set default app for code
-swift - /Applications/Zed.app go java js jsx json md py rb sh toml ts tsx txt yaml <<'EOF'
+swift - /Applications/Zed.app public.data public.source-code public.text go java js jsx json md py rb sh toml ts tsx txt yaml <<'EOF'
     import AppKit; import UniformTypeIdentifiers
     let app = URL(fileURLWithPath: CommandLine.arguments[1])
     for ext in CommandLine.arguments.dropFirst(2) {
-        let uti = UTType(filenameExtension: ext)!
+        let uti = UTType(ext) ?? UTType(filenameExtension: ext)!
         NSWorkspace.shared.setDefaultApplication(at: app, toOpen: uti)
     }
 EOF
