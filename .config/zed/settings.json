@@ -32,6 +32,7 @@
     "Ruby": ["Brewfile*"]
   },
   "auto_install_extensions": {
+    "deno": true,
     "dockerfile": true,
     "fish": true,
     "git-firefly": true,
@@ -41,7 +42,6 @@
   "agent_servers": { "antigravity-acp": { "type": "registry" } },
   "auto_indent_on_paste": true,
   "cli_default_open_behavior": "existing_window",
-  "disable_ai": true,
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
   "use_smartcase_search": true,
