@@ -29,8 +29,6 @@ end
 
 # Tell build tools about our special prefix
 # https://docs.brew.sh/Homebrew-and-Python#brewed-python-modules
-if test $HOMEBREW_PREFIX != /usr/local
-    set -gx CFLAGS -I$HOMEBREW_PREFIX/include
-    set -gx CPPFLAGS -I$HOMEBREW_PREFIX/include
-    set -gx LDFLAGS -L$HOMEBREW_PREFIX/lib
-end
+set -gx CFLAGS -I$HOMEBREW_PREFIX/include
+set -gx CPPFLAGS -I$HOMEBREW_PREFIX/include
+set -gx LDFLAGS -L$HOMEBREW_PREFIX/lib
