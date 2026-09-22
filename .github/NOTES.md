@@ -147,7 +147,7 @@ For more information, see [GitHub's guide](https://docs.github.com/en/free-pro-t
 1. Publicly expose local port
 
    ```sh
-   ngrok http 80
+   npx cloudflared tunnel --url localhost:8000
    ```
 
 ## TODOs
