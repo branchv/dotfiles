@@ -1,7 +1,0 @@
-// -*- mode: jsonc -*-
-{
-  // Duplicate .gitignore: https://github.com/microsoft/vscode/issues/156077
-  "files.exclude": {
-    "{[^.]*,.cache,.local,.Trash,.vscode/extensions}": true
-  }
-}

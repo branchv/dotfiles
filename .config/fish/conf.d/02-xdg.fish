@@ -27,8 +27,6 @@ set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew/Brewfile
 set -gx HOMEBREW_CACHE $XDG_CACHE_HOME/brew
 set -gx HOMEBREW_LOGS $XDG_CACHE_HOME/brew/logs
 
-# code: https://github.com/microsoft/vscode/issues/3884
-
 # deno
 set -gx DENO_INSTALL_ROOT ~/.local
 

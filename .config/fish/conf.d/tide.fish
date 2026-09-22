@@ -171,7 +171,7 @@ set -g tide_zig_bg_color normal
 set -g tide_zig_color F7A41D
 set -g tide_zig_icon 
 
-contains "$TERM_PROGRAM" vscode zed && set -gx tide_shlvl_threshold "$SHLVL"
+contains "$TERM_PROGRAM" zed && set -gx tide_shlvl_threshold "$SHLVL"
 status is-interactive && function tide_prompt_at_bottom --on-event fish_prompt --on-variable LINES
     printf "\e[$LINES;1H" # tput cup $LINES
 end

@@ -6,7 +6,6 @@ Icon?
 ### Apps ###
 .env*
 !.env.example
-.vscode/
 .zed/
 
 ### Misc ###

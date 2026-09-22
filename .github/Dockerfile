@@ -3,7 +3,7 @@ ARG SRC=remote # `remote` or `local`
 
 # For local changes: docker run --rm -it $(docker build -f .github/Dockerfile -q --build-arg SRC=local .)
 FROM scratch AS local
-COPY --parents=true .config .github .ssh .vscode .bashrc .hushlogin .pre-commit-config.yaml .prekignore .profile .zprofile /root/
+COPY --parents=true .config .github .ssh .bashrc .hushlogin .pre-commit-config.yaml .prekignore .profile .zprofile /root/
 # For remote only: docker run --rm -it $(docker build -f .github/Dockerfile -q .)
 FROM scratch AS remote
 ADD https://www.google.com/robots.txt /tmp/.cache_buster

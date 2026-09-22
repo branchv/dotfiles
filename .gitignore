@@ -17,8 +17,5 @@
 !/.ssh/
 /.ssh/*
 !/.ssh/config
-!/.vscode/
-/.vscode/*
-!/.vscode/settings.json
 !/.zprofile
 !/bootstrap
