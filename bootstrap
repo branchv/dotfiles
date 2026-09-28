@@ -10,11 +10,7 @@ set -euo pipefail
 
 # Prompt for and remember password
 echo "Prompting for sudo password"
-if [ "${EUID:-$(id -u)}" -eq 0 ]; then
-    :
-else
-    sudo --validate
-fi
+[ "${EUID:-$(id -u)}" -eq 0 ] || sudo --validate
 while true; do
     command -v sudo &>/dev/null || exit
     sudo -n true
@@ -22,7 +18,7 @@ while true; do
     kill -0 "$$" || exit
 done &>/dev/null &
 
-# On macOS, the default git needs CLT. Let brew install them headlessly.
+# On macOS, system git needs CLT. Let brew install them headlessly.
 if [ "$(uname)" = "Darwin" ] && ! [ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
     echo "Installing Homebrew"
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -31,5 +27,11 @@ fi
 # Install yadm and run bootstrap
 echo "Bootstrapping dotfiles"
 # shellcheck source=/dev/null disable=SC2016
-source /dev/stdin <<<"$(curl -fsSL bootstrap.yadm.io | sed 's|$YADM_REPO/raw/$YADM_RELEASE/yadm|https://github.com/yadm-dev/yadm/raw/master/yadm|')"
+yadm="$(curl -fsSL bootstrap.yadm.io | sed 's|$YADM_REPO/raw/$YADM_RELEASE/yadm|https://github.com/yadm-dev/yadm/raw/master/yadm|')"
+shasum="$(command -v sha256sum || command -v shasum || echo "openssl dgst -sha256")"
+got="$(printf '%s' "$yadm" | $shasum | awk '{print $1}')"
+want=b55476d8f12b64f37e44fd67f17e173c2268701dc63d8574293327311f0dedb2
+[ "$got" = "$want" ] || { printf >&2 "\e[31mERROR\e[0m: Checksum mismatch! Got: %s\n" "$got" && exit 1; }
+# shellcheck source=/dev/null
+source /dev/stdin <<<"$yadm"
 yadm clone --bootstrap https://github.com/branchv/dotfiles.git -f
