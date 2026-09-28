@@ -9,5 +9,12 @@
   {
     "context": "GitDiff > Editor",
     "bindings": { "cmd-shift-s": "git::ToggleStaged" }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-left": "pane::ActivatePreviousItem",
+      "cmd-right": "pane::ActivateNextItem"
+    }
   }
 ]
