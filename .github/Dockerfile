@@ -1,4 +1,4 @@
-ARG IMG=debian # `debian` or `alpine`
+ARG IMG=alpine # `alpine` or `debian`
 ARG SRC=remote # `remote` or `local`
 
 # For local changes: docker run --rm -it $(docker build -f .github/Dockerfile -q --build-arg SRC=local .)
