@@ -6,10 +6,11 @@
 debug "Signing in to 1Password"
 eval "$(op signin)"
 
-### docker ###
-debug "Fetching Docker credentials"
+### services ###
+debug "Fetching credentials"
 export PATH="${PATH+$PATH:}/Applications/OrbStack.app/Contents/MacOS/xbin"
 op read op://personal/docker/token | docker login --username branchv --password-stdin
+op read op://personal/pypi/token | UV_PREVIEW=1 uv auth login upload.pypi.org --token -
 
 ## env ###
 debug "Creating shell secrets"
@@ -18,7 +19,6 @@ export GITHUB_TOKEN
 cat <<EOF >~/.config/fish/conf.d/secrets.fish
 set -gx GITHUB_TOKEN $GITHUB_TOKEN
 set -gx NPM_TOKEN $(op read op://personal/npm/token)
-set -gx UV_PUBLISH_TOKEN $(op read op://personal/pypi/token)
 EOF
 chmod 600 ~/.config/fish/conf.d/secrets.fish
 
