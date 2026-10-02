@@ -2,7 +2,7 @@
 provider = "github"
 name = "branchv"
 path = "."
-env_var = "GITHUB_TOKEN"
+auth_type = "gh-cli"
 auth_http = true
 skip_forks = true
 
@@ -10,7 +10,7 @@ skip_forks = true
 provider = "github"
 name = "python-poetry"
 path = "."
-env_var = "GITHUB_TOKEN"
+auth_type = "gh-cli"
 auth_http = true
 skip_forks = true
 exclude = ["crashtest", "poetry-ghsa-", "roadmap", "test-fixture-"]

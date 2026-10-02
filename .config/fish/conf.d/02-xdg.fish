@@ -30,6 +30,10 @@ set -gx HOMEBREW_LOGS $XDG_CACHE_HOME/brew/logs
 # deno
 set -gx DENO_INSTALL_ROOT ~/.local
 
+# gh
+# NOTE: this avoids writing hosts.yml with machine-specific auth state
+set -gx GH_CONFIG_DIR $XDG_STATE_HOME/gh
+
 # go
 set -gx GOBIN $XDG_BIN_HOME
 set -gx GOPATH $XDG_DATA_HOME/go
