@@ -1,8 +1,6 @@
 [global]
 load_dotenv = true
-# TODO: Use below after https://github.com/direnv/direnv/commit/92436ee
-# log_format = "-"
-log_filter = "^$"
+log_format = "-"
 strict_env = true
 
 [whitelist]
