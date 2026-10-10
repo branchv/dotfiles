@@ -11,7 +11,7 @@
   "git_panel": { "dock": "left", "group_by": "staging" },
   "collaboration_panel": { "dock": "left" },
   "outline_panel": { "dock": "left" },
-  "agent": { "dock": "right", "sidebar_side": "right" },
+  "agent": { "dock": "right", "threads_sidebar": { "position": "right" } },
   "tabs": { "close_position": "left" },
   "wrap_guides": [80],
   // Terminal
