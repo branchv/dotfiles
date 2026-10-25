@@ -36,6 +36,9 @@
     "dockerfile": true,
     "fish": true,
     "git-firefly": true,
+    "ini": true,
+    "oxc": true,
+    "ruby": true,
     "toml": true
   },
   // Other
