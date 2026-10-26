@@ -1,4 +1,4 @@
-# -*- mode: ignore -*-
+# -*- mode: gitignore -*-
 ### macOS ###
 .DS_Store
 Icon?
