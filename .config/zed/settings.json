@@ -37,9 +37,11 @@
     "fish": true,
     "git-firefly": true,
     "ini": true,
+    "make": true,
     "oxc": true,
     "ruby": true,
-    "toml": true
+    "toml": true,
+    "typst": true
   },
   // Other
   "telemetry": {
@@ -47,7 +49,12 @@
     "diagnostics": false,
     "metrics": false
   },
-  "agent_servers": { "antigravity-acp": { "type": "registry" } },
+  "agent_servers": {
+    "antigravity-acp": {
+      "type": "registry",
+      "default_config_options": { "mode": "auto_edit" }
+    }
+  },
   "auto_indent_on_paste": true,
   "cli_default_open_behavior": "existing_window",
   "ensure_final_newline_on_save": true,
