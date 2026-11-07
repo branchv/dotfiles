@@ -1,7 +1,7 @@
 # Enforce XDG compliance
 #
 # References
-# - Spec: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# - Spec: https://specifications.freedesktop.org/basedir/latest/
 # - Support: https://wiki.archlinux.org/title/XDG_Base_Directory
 
 # NOTE: faster than `mkdir -p` alone, since test is a builtin

@@ -20,7 +20,7 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_VERIFY_ATTESTATIONS 1
 
 # Register completions (for non-brewed fish)
-# https://docs.brew.sh/Shell-Completion#configuring-completions-in-fish
+# https://docs.brew.sh/Shell-Completion#fish
 set -l comp_dir $HOMEBREW_PREFIX/share/fish/vendor_completions.d
 if not contains $comp_dir $fish_complete_path
     set -l idx (contains -i $__fish_data_dir/completions $fish_complete_path)
@@ -28,7 +28,6 @@ if not contains $comp_dir $fish_complete_path
 end
 
 # Tell build tools about our special prefix
-# https://docs.brew.sh/Homebrew-and-Python#brewed-python-modules
 set -gx CFLAGS -I$HOMEBREW_PREFIX/include
 set -gx CPPFLAGS -I$HOMEBREW_PREFIX/include
 set -gx LDFLAGS -L$HOMEBREW_PREFIX/lib
