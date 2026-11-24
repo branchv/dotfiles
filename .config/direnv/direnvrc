@@ -35,8 +35,7 @@ approx_newer_than() {
 ### Go ###
 
 layout_go() {
-    export GOBIN="$PWD/bin"
-    export GOTOOLCHAIN=auto
+    export GOBIN="$PWD/bin" GOTOOLCHAIN=auto
     PATH_add bin
 }
 
@@ -68,6 +67,7 @@ layout_python() {
     # Activate venv
     export VIRTUAL_ENV="$PWD/.venv"
     PATH_add "$VIRTUAL_ENV/bin"
+    [[ ! -f poetry.lock ]] || PATH_add "$(uvx -q --from=poetry command -v poetry)"/..
     watch_file .python-version poetry.lock uv.lock
 
     # Install, if deps are outdated

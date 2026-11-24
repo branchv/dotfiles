@@ -13,7 +13,6 @@ abbr g git
 abbr k kubectl
 abbr kc kubectx
 abbr kn kubens
-abbr p poetry
 abbr pc pbcopy
 abbr pp pbpaste
 abbr py python3
